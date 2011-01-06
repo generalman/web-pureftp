@@ -1,6 +1,6 @@
 <?php
   /* 'User manager for PureFTPd' is made by M.Mastenbroek 2002 - 2005
-   *  For more info look at http://machiel.generaal.net
+   *  For more info look at http://machiel.generaal.net 333333
    *  Version 2.1
    */
 

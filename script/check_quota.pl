@@ -2,7 +2,7 @@
 # Titre : Parseur de fichier log
 # Auteur : Olivier Legras
 # Date : 03/08
-# Version : 1.0
+# Version : 1.1
 #
 # Description : Ce script permet d'alleger la base mysql rempli par le script parser_syslog.pl. 
 #

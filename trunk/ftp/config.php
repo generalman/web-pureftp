@@ -9,7 +9,7 @@
   $LocationImages =  "images";        // Location of images
 
   $DBHost = "127.0.0.1";              // Ip-address of MySQL server
-                                      // (Don’t change this if you are using the default database)
+                                      // (Donï¿½t change this if you are using the default database)
 
   $DBLogin = "ftp";                   // Username of MySQL user
 

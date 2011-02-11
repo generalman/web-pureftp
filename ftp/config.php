@@ -11,9 +11,9 @@
   $DBHost = "127.0.0.1";              // Ip-address of MySQL server
                                       // (Don�t change this if you are using the default database)
 
-  $DBLogin = "ftp";                   // Username of MySQL user
+  $DBLogin = "root";                   // Username of MySQL user
 
-  $DBPassword = "tmppasswd";          // Password of MySQL user
+  $DBPassword = "P@ssw0rd";          // Password of MySQL user
 
   $DBDatabase = "ftpusers";           // Name of database
 

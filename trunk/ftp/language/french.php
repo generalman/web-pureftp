@@ -11,13 +11,13 @@
   $Translate[10] = "nom";
 
   // System messages
-  $Translate[20] = "Vous avez entré un mauvais login ou mot de passe.";
-  $Translate[21] = "Le mot de passe est incorrect, les modifications ne seront pas enregistrées.";
-  $Translate[22] = "Les données seront sauvegardées, exception faite du mot de passe.";
-  $Translate[23] = "Données enregistrées.";
+  $Translate[20] = "Vous avez entrÃ© un mauvais login ou mot de passe.";
+  $Translate[21] = "Le mot de passe est incorrect, les modifications ne seront pas enregistrÃ©es.";
+  $Translate[22] = "Les donnÃ©es seront sauvegardÃ©es, exception faite du mot de passe.";
+  $Translate[23] = "DonnÃ©es enregistrÃ©es.";
   $Translate[24] = "Utilisateur FTP";
-  $Translate[25] = "sera supprimé.";
-  $Translate[26] = "Erreur: accès refusé à un ou plusieurs répertoires";
+  $Translate[25] = "sera supprimÃ©.";
+  $Translate[26] = "Erreur: accÃ¨s refusÃ© Ã  un ou plusieurs rÃ©pertoires";
 
   // Labels
   $Translate[30] = "Page de connexion";
@@ -25,24 +25,24 @@
   $Translate[32] = "Identifiant";
   $Translate[33] = "Uid";
   $Translate[34] = "Gid";
-  $Translate[35] = "Répertoire home";
+  $Translate[35] = "RÃ©pertoire home";
   $Translate[36] = "BP montante";
   $Translate[37] = "BP descendante";
   $Translate[38] = "Adresse IP";
   $Translate[39] = "Configuration";
-  $Translate[40] = "Activé";
+  $Translate[40] = "ActivÃ©";
   $Translate[41] = "Mot de passe";
   $Translate[42] = "Confirmation du mot de passe";
   $Translate[43] = "Quota de fichiers";
   $Translate[44] = "Quota d'espace disque";
-  $Translate[45] = "Ratio utilisateur [montée:descente]";
+  $Translate[45] = "Ratio utilisateur [montÃ©e:descente]";
   $Translate[46] = "Notes";
 
   // Button info
   $Translate[60] = "Editer";
   $Translate[61] = "Supprimer";
   $Translate[62] = "Verrouiller";
-  $Translate[63] = "Déverrouiller";
+  $Translate[63] = "DÃ©verrouiller";
   $Translate[64] = "Ouvrir";
   $Translate[65] = "Ouvrir l'explorateur.";
   $Translate[66] = "Ferme l'explorateur.";
@@ -52,40 +52,42 @@
   $Translate[80] = "Nom";
   $Translate[81] = "Taille";
   $Translate[82] = "Type";
-  $Translate[83] = "Modifié";
-  $Translate[84] = "Propriétaire";
+  $Translate[83] = "ModifiÃ©";
+  $Translate[84] = "PropriÃ©taire";
   $Translate[85] = "Groupe";
   $Translate[86] = "Attributs";
 
   // Help balloons
-  $Translate[90] = "Un compte FTP doit être activé pour pouvoir l'utiliser.";
-  $Translate[91] = "Les droits utilisateur de ce compte FTP sont égaux à ceux de cet utilisateur Unix.";
-  $Translate[92] = "Les droits de groupe de ce compte FTP sont égaux à ceux de cet utilisateur Unix.";
-  $Translate[93] = "Bande passante maximum en Ko/s attribuée à un utilisateur ftp pour l'upload";
-  $Translate[94] = "Bande passante maximum en Ko/s attribuée à un utilisateur ftp pour le download.";
+  $Translate[90] = "Un compte FTP doit Ãªtre activÃ© pour pouvoir l'utiliser.";
+  $Translate[91] = "Les droits utilisateur de ce compte FTP sont Ã©gaux Ã  ceux de cet utilisateur Unix.";
+  $Translate[92] = "Les droits de groupe de ce compte FTP sont Ã©gaux Ã  ceux de cet utilisateur Unix.";
+  $Translate[93] = "Bande passante maximum en Ko/s attribuÃ©e Ã  un utilisateur ftp pour l'upload";
+  $Translate[94] = "Bande passante maximum en Ko/s attribuÃ©e Ã  un utilisateur ftp pour le download.";
   $Translate[95] = "Nombre de fichiers maximum qu'un utilisateur peut charger sur son compte.";
-  $Translate[96] = "Données maximum (en Mo) qu'un utilisateur peur charger sur son compte.";
-  $Translate[97] = "Par exemple <1:2> signifie: chargez 4Mo, puis 8Mo, <0:0> désactive l'option.";
-  $Translate[98] = "Restreint ce compte à un seul utilisateur (adresse IP) ou à tout le monde (*).";
+  $Translate[96] = "DonnÃ©es maximum (en Mo) qu'un utilisateur peur charger sur son compte.";
+  $Translate[97] = "Par exemple <1:2> signifie: chargez 4Mo, puis 8Mo, <0:0> dÃ©sactive l'option.";
+  $Translate[98] = "Restreint ce compte Ã  un seul utilisateur (adresse IP) ou Ã  tout le monde (*).";
   $Translate[99] = "%utilisation";
-  $Translate[100] = "Quota attribué au partenaire : ";
-  $Translate[101] = "Quota non attribué: ";
-  $Translate[102] = "%Quota attribué: ";
+  $Translate[100] = "Quota attribuÃ© au partenaire : ";
+  $Translate[101] = "Quota non attribuÃ©: ";
+  $Translate[102] = "%Quota attribuÃ©: ";
   $Translate[103] = "Se deconnecter";
   $Translate[104] = "Quota Total: ";
   $Translate[105] = "Gestion des administrateurs: ";
-  $Translate[106] = "Répertoire de base: ";
+  $Translate[106] = "RÃ©pertoire de base: ";
   $Translate[107] = "Quota max: ";
   $Translate[108] = "Partenaire: ";
   $Translate[109] = "Nouvel Admin: ";
-  $Translate[110] = "Vous ne pouvez pas créer cet utilisateur car vous avez épuisé le quota qui vous a été attribué";
-  $Translate[111] = "Vous ne pouvez pas modifier cet utilisateur car vous avez épuisé le quota qui vous a été attribué";
+  $Translate[110] = "Vous ne pouvez pas crÃ©er cet utilisateur car vous avez Ã©puisÃ© le quota qui vous a Ã©tÃ© attribuÃ©";
+  $Translate[111] = "Vous ne pouvez pas modifier cet utilisateur car vous avez Ã©puisÃ© le quota qui vous a Ã©tÃ© attribuÃ©";
   $Translate[112] = "Droits Utilisateurs";
-  $Translate[113] = "Durée de validité";
-  $Translate[114] = "Attention : Le répertoire de lecture de l'utilisateur n'existe pas. Vous pourrez l'activer seulement lorsque l'utilisateur avec les droits d'écriture se sera connecté une première fois.";
+  $Translate[113] = "DurÃ©e de validitÃ©";
+  $Translate[114] = "Attention : Le rÃ©pertoire de lecture de l'utilisateur n'existe pas. Vous pourrez l'activer seulement lorsque l'utilisateur avec les droits d'ï¿½criture se sera connectï¿½ une premiï¿½re fois.";
   $Translate[115] = "Lecture et Ecriture";
   $Translate[116] = "Lecture Seule";
   $Translate[117] = "Droits";
-  $Translate[118] = "Vous ne pourrez pas réactiver ce compte tant que son répertoire de base ne sera pas créé par un utilisateur qui possède les droits d'écriture.";
+  $Translate[118] = "Vous ne pourrez pas rÃ©activer ce compte tant que son rÃ©pertoire de base ne sera pas crÃ©Ã© par un utilisateur qui possÃ¨de les droits d'Ã©criture.";
   $Translate[119] = "Gestion de la Corbeille utilisateur";
+  $Translate[120] = " dans le rÃ©pertoire de l'utilisateur --> ";
+  $Translate[121] = "RafraÃ®chir"
   ?>

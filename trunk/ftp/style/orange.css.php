@@ -94,7 +94,7 @@ input.directory_location {
 
 tr.column_name_select_user {
 	background-color: rgb(255, 170, 82);
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 	font-weight: bold;
 
 }
@@ -161,6 +161,19 @@ img.icon {
 	border-width: 0px;
 	vertical-align: center;
 	margin-left: 2px;
+}
+
+td.border_lrb {
+	padding-left: 3px;
+	border-left:   1px solid black;
+	border-right:  1px solid black;
+	border-bottom:    1px solid black;
+}
+td.border_lrt {
+	padding-left: 3px;
+	border-left:   1px solid black;
+	border-right:  1px solid black;
+	border-top:    1px solid black;
 }
 
 table.header {

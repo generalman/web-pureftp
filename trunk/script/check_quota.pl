@@ -18,7 +18,7 @@ my $host; my $i_message;my $occurence;
 my $timestamp_dernier;
 my $type ;my $categorie; my $partenaire; my $occurence_total; my $user; my $sth;
 my $dbh = DBI->connect("DBI:mysql:database=ftpusers;host=127.0.0.1",
-                          "root", "",
+                          "root", 'P@ssw0rd',
                           {'RaiseError' => 1});
 
 #HISTORIQUE

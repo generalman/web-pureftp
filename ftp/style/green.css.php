@@ -99,7 +99,7 @@ input.directory_location {
 /* green color 1-3 */
 tr.column_name_select_user {
 	background-color: rgb(49, 97, 24);
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 	font-weight: bold;
 
 }
@@ -161,6 +161,18 @@ td.border_lr {
 	border-right:  1px solid black;
 }
 
+td.border_lrb {
+	padding-left: 3px;
+	border-left:   1px solid black;
+	border-right:  1px solid black;
+	border-bottom:    1px solid black;
+}
+td.border_lrt {
+	padding-left: 3px;
+	border-left:   1px solid black;
+	border-right:  1px solid black;
+	border-top:    1px solid black;
+}
 img.icon {
 	width: 16px;
 	height: 16px;

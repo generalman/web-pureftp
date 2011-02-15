@@ -251,7 +251,3 @@ td.last {
 	border-left:    #ffffff 1px solid;
 	border-bottom:  #cccccc 1px solid;
 }
-
-#container div{margin-top:40px;border-bottom:1px solid #000;}
-#container div h2{padding:5px 10px;background:#eee;border-left:5px solid #000;zoom:1;}
-#container div h3{clear:left;font-size:18px;}

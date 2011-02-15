@@ -14,6 +14,11 @@
 		echo ("<font size=\"+1\">&nbsp;".$Translate[0]."</font>\n");
 		echo ("</td>\n");
 		echo ("<td align=\"right\">");
+		if ($Client!="Administrator"){
+   			echo ("<a href=\"$_SERVER[PHP_SELF]\">");
+			echo ("<img hspace=\"1\" src=\"$LocationImages/refresh.png\" title=\"".$Translate[121]."\" width=\"50\" height=\"50\" align=\"middle\" border=\"0\">");
+			echo ("</a>");
+    	}
 		echo ("<a href=\"$_SERVER[PHP_SELF]?new=1\">");
 		echo ("<img hspace=\"1\" src=\"$LocationImages/add_user.png\" title=\"".$Translate[31]."\" width=\"60\" height=\"60\" align=\"middle\" border=\"0\">");
 		echo ("</a>");
@@ -364,7 +369,10 @@
 		echo ("<tr class=\"edit_user\">\n");
 		echo ("<td class=\"border_ltb\" width=\"$small_erea\">".$Translate[41]."</td>\n");
 		echo ("<td class=\"border_lrtb\" colspan=\"2\">\n&nbsp;");
-		echo ("<input type=\"password\" name=\"password_box\" size=\"20\" maxlength=\"64\" value=\"$password\">\n");
+		echo ("<input id=\"password_box\" type=\"password\" name=\"password_box\" size=\"20\" maxlength=\"64\" value=\"$password\">\n");
+		echo ("<div id=\"passwordStrengthDiv\" class=\"is0\"></div>");
+		echo ("<input id=\"showcharacters\" name=\"showcharacters\" type=\"checkbox\" /> Afficher les caractères");
+		
 		echo ("</td>\n");
 		echo ("</tr>\n");
 

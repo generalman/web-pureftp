@@ -13,50 +13,6 @@
 
 		$LoginName=$_SESSION['LoginName'];
 		
-		//Function
-		
-		//G�n�rer un mot de passe al�atoire :
-		function generer($longueur)
-    {
-    $minuscules = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
-    
-    $majuscules = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
-    
-    $code = ''; //On d�clare notre variable
-        for ($i = 1; $i <= $longueur; $i++)
-        {
-        //On g�n�re un type al�atoire
-        $type = rand(0,2);
-            if ($type == 0)
-            {
-                $caractere = rand(0,9);
-                $code .= $caractere;
-            }
-            if ($type == 1)
-            {
-                $nbre_aleatoire = rand(0, 25);
-                $caractere = $majuscules[$nbre_aleatoire];
-                $code .= $caractere;
-            }
-            if ($type == 2)
-            {
-                $nbre_aleatoire = rand(0, 25);
-                $caractere = $minuscules[$nbre_aleatoire];
-                $code .= $caractere;
-            }
-        }
-    return $code; //On retourne le code g�n�r� au complet
-    }
-    
-    //Appeler la fonction :
-    /*
-    $nbre_chars = 7; //Changez ce nombre, vous verrez ;) 
-    
-    $code = generer($nbre_chars);
-    
-    echo $code; //On affiche le r�sultat :p 
-    */
-		
 		//Init Mysql Request
 		$table_admin  = "SELECT * FROM admin WHERE Username='$LoginName'";
 		$query_admin  = mysql_query($table_admin);
@@ -402,14 +358,14 @@
   							echo ("  alert(\"".$Translate[23]."\");\n\n");
   							echo ("-->\n");
   							echo ("</script>\n");
-  							break;
+  							
   						}
   					}
   				}
 				}
 			}else // New user
 			{
-        if ($QuotaFull==1){
+        if (($QuotaFull==1)&&($Client!="Administrator")){
             echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
   					echo ("<!--\n\n");
   					echo ("  alert(\"".$Translate[110]."\");\n\n");

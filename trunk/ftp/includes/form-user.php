@@ -449,7 +449,7 @@
 		echo ("</tr>\n");
     }
     else{
-    
+       
        echo ("<input type=\"hidden\" name=\"gid_box\" size=\"11\" maxlength=\"11\" value=\"$gid\">\n");
        echo ("<input type=\"hidden\" name=\"uid_box\" size=\"11\" maxlength=\"11\" value=\"$uid\">\n");
        echo ("<input type=\"hidden\" name=\"dir_box\" size=\"11\" maxlength=\"11\" value=\"$dir\">\n");
@@ -550,7 +550,9 @@
 		}
 		
 
-		
+	if ($new==1){
+       	echo ("<input type=\"hidden\" name=\"new_box\" size=\"11\" maxlength=\"11\" value=\"1\">\n");
+       }	
 		
 		
     if ($Client=="Administrator"){

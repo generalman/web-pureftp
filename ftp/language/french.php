@@ -89,5 +89,7 @@
   $Translate[118] = "Vous ne pourrez pas réactiver ce compte tant que son répertoire de base ne sera pas créé par un utilisateur qui possède les droits d'écriture.";
   $Translate[119] = "Gestion de la Corbeille utilisateur";
   $Translate[120] = " dans le répertoire de l'utilisateur --> ";
-  $Translate[121] = "Rafraîchir"
+  $Translate[121] = "Rafraîchir";
+  $Translate[122] = "Vous ne pouvez pas créer plusieurs utilisateurs du même nom";
+  $Translate[123] = "Attention : L\'utilisateur existe déjà!!!";
   ?>

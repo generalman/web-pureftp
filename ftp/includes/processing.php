@@ -203,7 +203,8 @@
 			while ($iCounter < $length_users)
 			{
 				$message_nr = mysql_result($query_users,$iCounter,"User");
-				if ($message_nr == $_POST['username_box'])
+				$message_client = mysql_result($query_users,$iCounter,"Client");
+				if (($message_nr == $_POST['username_box'])&&($message_client == $_POST['client_box']))
 				{
 					$iExistUser=1;
 					break;
@@ -262,10 +263,10 @@
      /////////////////////////////FIN LIMITATION QUOTA ///////////////// 
 
      
-
+			// Utilisateur existant donc c'est une modification
 			if ($iExistUser == 1)
 			{
-        
+        // Attention Quota explosé
         if ($QuotaFull==1){
           echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
 					echo ("<!--\n\n");
@@ -276,6 +277,18 @@
         
         }
         else{
+        //Attention l'utilisateur existe deja
+        if ($_POST['new_box']==1){
+          echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
+					echo ("<!--\n\n");
+					echo ("  alert(\"".$Translate[123]."\");\n\n");
+					echo ("-->\n");
+					echo ("</script>\n");
+					
+        
+        }
+        else{
+        
         
 				//  update current ftp account
 				if ($vallid_password == 0)
@@ -322,12 +335,11 @@
   																							Ipaddress='".$_POST['ipaddress_box']."',
   																							Client='".$_POST['client_box']."',
   																							Comment='".$_POST['comment_box']."'
-  																							WHERE User='".$_POST['username_box']."'",$link))
+  																							WHERE User='".$_POST['username_box']."' and Client='".$_POST['client_box']."'",$link))
   						{
   							echo ("<br>Error: Not a valid UPDATE query.<br>");
-  							echo ("<br>MySql error : ".mysql_error());
-  
-  
+  							echo ("<br>MySql errorss : ".mysql_error());
+  							  
   						}
   					}else
   					{ 
@@ -344,13 +356,12 @@
   																					DLRatio='".$_POST['dlratio_box']."',
   																					Status='".$_POST['status_box']."',
   																					Ipaddress='".$_POST['ipaddress_box']."',
-  																					Client='".$_POST['client_box']."',
-                                            Comment='".$_POST['comment_box']."'
-  																					WHERE User='".$_POST['username_box']."'",$link))
+  																					Comment='".$_POST['comment_box']."'
+  																					WHERE User='".$_POST['username_box']."' and Client='".$_POST['client_box']."'",$link))
   						{
   							echo ("<br>Error: Not a valid UPDATE query.<br>");
   							echo ("<br>MySql error : ".mysql_error());
-  
+  							
   						}else
   						{
   							echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
@@ -361,7 +372,7 @@
   							
   						}
   					}
-  				}
+  				}}
 				}
 			}else // New user
 			{

@@ -5,19 +5,28 @@ $.fn.passwordStrength = function( options ){
 		
 		that.div = $(that.opts.targetDiv);
 		that.defaultClass = that.div.attr('class');
-		
-		that.percents = (that.opts.classes.length) ? 100 / that.opts.classes.length : 100;
-
 		 v = $(this)
+		 
 		.keyup(function(){
+     	    
 			if( typeof el == "undefined" )
 				this.el = $(this);
-			var s = getPasswordStrength (this.value);
-			var p = this.percents;
-			var t = Math.floor( s / p );
+				
 			
+			
+	    
+			
+			
+			
+			s=$('#score').val();
+			
+			var p = that.percents;
+			var t = Math.floor( s / p );
+
 			if( 100 <= s )
 				t = this.opts.classes.length - 1;
+				
+				
 				
 			this.div
 				.removeAttr('class')
@@ -29,29 +38,18 @@ $.fn.passwordStrength = function( options ){
 		.next()
 		.click(function(){
 			$(this).prev().val( randomPassword() ).trigger('keyup');
+			
+			$("#confirm_password_box").val($("#password_box").val());
+			
+			$('#showcharacters').each(function(){this.checked=false;});
+
 			return false;
 		});
 	});
+	
+	
 
-	function getPasswordStrength(H){
-		var D=(H.length);
-		if(D>5){
-			D=5
-		}
-		var F=H.replace(/[0-9]/g,"");
-		var G=(H.length-F.length);
-		if(G>3){G=3}
-		var A=H.replace(/\W/g,"");
-		var C=(H.length-A.length);
-		if(C>3){C=3}
-		var B=H.replace(/[A-Z]/g,"");
-		var I=(H.length-B.length);
-		if(I>3){I=3}
-		var E=((D*10)-20)+(G*10)+(C*15)+(I*10);
-		if(E<0){E=0}
-		if(E>100){E=100}
-		return E
-	}
+	
 
 	function randomPassword() {
 		var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$_+";
@@ -78,20 +76,12 @@ $.fn.passwordStrength.defaults = {
 $(document)
 .ready(function(){
 	$('input[name="password_box"]').passwordStrength();
-	$('input[name="password2"]').passwordStrength({targetDiv: '#passwordStrengthDiv2',classes : Array('is10','is20','is30','is40')});
+	
+	
+	
 
 });
 
-<? // VISUALISER LE MOT DE PASSE ?>
 
-$(document).ready(function() {
-                $('#showcharacters').click(function() {
-                    if ($(this).attr('checked')) {
-                        $('#password_box').replaceWith('<input id="password_box" name="password_box" type="text" value="' + $('#password_box').attr('value') + '" />');
-                    }
-                    else {
-                        $('#password_box').replaceWith('<input id="password_box" name="password_box" type="password" value="' + $('#password_box').attr('value') + '" />');
-                    }
-                });
-             
-            });
+
+

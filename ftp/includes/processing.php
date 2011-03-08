@@ -190,8 +190,32 @@
 				$empty_password = 1;
 
 			// check for vallid password
-			if ($_POST['confirm_password_box'] != $_POST['password_box'])
+			if ($_POST['confirm_password_box'] != $_POST['password_box']){
 				$vallid_password = 0;
+				echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
+					echo ("<!--\n\n");
+					echo ("  alert(\"".$Translate[21]."\");\n\n");
+					echo ("-->\n");
+					echo ("</script>\n");
+					
+			}
+			
+				$result=testpassword($_POST['password_box']);
+				
+				if ($result<40){
+					 echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
+					echo ("<!--\n\n");
+					echo ("  alert(\"".$Translate[124]."\");\n\n");
+					echo ("-->\n");
+					echo ("</script>\n");
+					$vallid_password = 0;
+					
+					
+				}
+				
+				
+			
+				
 
 			$iExistUser=0;
 			$QuotaFull=0;
@@ -291,16 +315,8 @@
         
         
 				//  update current ftp account
-				if ($vallid_password == 0)
-				{
-					echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
-					echo ("<!--\n\n");
-					echo ("  alert(\"".$Translate[21]."\");\n\n");
-					echo ("-->\n");
-					echo ("</script>\n");
-				}else
-				{
-  				if ($empty_password == 1) // update without password
+				
+  				if (($empty_password == 1)&&($vallid_password!=0)) // update without password
   				{
   
   						echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
@@ -372,7 +388,7 @@
   							
   						}
   					}
-  				}}
+  				}
 				}
 			}else // New user
 			{
@@ -388,15 +404,7 @@
           else{
           
   				// Create new User
-  				if ($vallid_password == 0 || $empty_password == 1)
-  				{
-  					echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
-  					echo ("<!--\n\n");
-  					echo ("  alert(\"".$Translate[21]."\");\n\n");
-  					echo ("-->\n");
-  					echo ("</script>\n");
-  					$data_saved = 0;
-  				}else
+  				if ($vallid_password != 0 || $empty_password != 1 )
   				{
   				 if  ($_POST['uid_box']!="2001"){
                if (!is_dir($_POST['dir_box']))

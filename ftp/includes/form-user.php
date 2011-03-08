@@ -370,8 +370,22 @@
 		echo ("<td class=\"border_ltb\" width=\"$small_erea\">".$Translate[41]."</td>\n");
 		echo ("<td class=\"border_lrtb\" colspan=\"2\">\n&nbsp;");
 		echo ("<input id=\"password_box\" type=\"password\" name=\"password_box\" size=\"20\" maxlength=\"64\" value=\"$password\">\n");
-		echo ("<div id=\"passwordStrengthDiv\" class=\"is0\"></div>");
-		echo ("<input id=\"showcharacters\" name=\"showcharacters\" type=\"checkbox\" /> Afficher les caractères");
+		
+		
+		echo ("<input id=\"showcharacters\" name=\"showcharacters\" type=\"checkbox\" />Voir ");
+		information($Translate[126],$Translate[125]);
+		
+		//echo ("<script src=\"js/jquery-1.3.2.js\" type=\"text/javascript\" charset=\"utf-8\"></script>");
+
+		echo ("\n<script src=\"includes/jquery.showpassword-1.0.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\n");
+		echo ("<script type=\"text/javascript\">\n");
+		echo ("	// <![CDATA[	\n");
+		echo ("	$(document).ready(function(){	\n");			
+		echo ("		$('#password_box').showPassword('#showcharacters');\n");
+		echo ("	});	\n");
+		echo ("	// ]]>\n");
+		echo ("</script>\n");
+		
 		
 		echo ("</td>\n");
 		echo ("</tr>\n");
@@ -379,7 +393,7 @@
 		echo ("<tr class=\"edit_user\">\n");
 		echo ("<td class=\"border_ltb\" width=\"$small_erea\">".$Translate[42]."</td>\n");
 		echo ("<td class=\"border_lrtb\" colspan=\"2\">\n&nbsp;");
-		echo ("<input type=\"password\" name=\"confirm_password_box\" size=\"20\" maxlength=\"64\" value=\"$confirm_password\">\n");
+		echo ("<input type=\"password\" id=\"confirm_password_box\" name=\"confirm_password_box\" size=\"20\" maxlength=\"64\" value=\"$confirm_password\">\n");
 		echo ("</td>\n");
 		echo ("</tr>\n");
     if ($Client=="Administrator"){

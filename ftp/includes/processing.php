@@ -168,9 +168,11 @@
 		fclose($fh);
 
 		// New user
-		if($_GET['new'] == 1 || empty($_POST['username_box']))
-			$new = 1;
-
+		if($_GET['new'] == 1 || empty($_POST['username_box'])){
+			$new = 1;}
+		if (isset($_GET['id'])){
+			$new=0;
+		}
 		$data_saved=1;
 
     
@@ -202,7 +204,7 @@
 			
 				$result=testpassword($_POST['password_box']);
 				
-				if ($result<40){
+				if (($result<40)&&($_POST['password_box']!='empty')){
 					 echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
 					echo ("<!--\n\n");
 					echo ("  alert(\"".$Translate[124]."\");\n\n");
@@ -335,8 +337,8 @@
   					       	echo ("-->\n");
   						      echo ("</script>\n");
                 }
-  
-  
+
+  						
   
   						if(!mysql_query("UPDATE users SET Uid='".$_POST['uid_box']."',
   																							Gid='".$_POST['gid_box']."',

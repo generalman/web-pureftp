@@ -369,15 +369,10 @@
 		echo ("<tr class=\"edit_user\">\n");
 		echo ("<td class=\"border_ltb\" width=\"$small_erea\">".$Translate[41]."</td>\n");
 		echo ("<td class=\"border_lrtb\" colspan=\"2\">\n&nbsp;");
+		
 		echo ("<input id=\"password_box\" type=\"password\" name=\"password_box\" size=\"20\" maxlength=\"64\" value=\"$password\">\n");
-		
-		
-		echo ("<input id=\"showcharacters\" name=\"showcharacters\" type=\"checkbox\" />Voir ");
-		information($Translate[126],$Translate[125]);
-		
-		//echo ("<script src=\"js/jquery-1.3.2.js\" type=\"text/javascript\" charset=\"utf-8\"></script>");
-
 		echo ("\n<script src=\"includes/jquery.showpassword-1.0.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\n");
+		echo ("<input id=\"showcharacters\" name=\"showcharacters\" type=\"checkbox\" />Voir ");
 		echo ("<script type=\"text/javascript\">\n");
 		echo ("	// <![CDATA[	\n");
 		echo ("	$(document).ready(function(){	\n");			
@@ -385,6 +380,13 @@
 		echo ("	});	\n");
 		echo ("	// ]]>\n");
 		echo ("</script>\n");
+		
+		
+		information($Translate[126],$Translate[125]);
+		
+		//echo ("<script src=\"js/jquery-1.3.2.js\" type=\"text/javascript\" charset=\"utf-8\"></script>");
+
+		
 		
 		
 		echo ("</td>\n");
@@ -488,6 +490,9 @@
 		 
     
 		  echo ("</select>\n");
+	
+
+		  
 		  echo ($Translate[120]);
 		  //echo ("</td>\n");
       // Seclection du repertoire de lecture 
@@ -566,7 +571,11 @@
 
 	if ($new==1){
        	echo ("<input type=\"hidden\" name=\"new_box\" size=\"11\" maxlength=\"11\" value=\"1\">\n");
-       }	
+       }
+    else{
+    	echo ("<input type=\"hidden\" name=\"new_box\" size=\"11\" maxlength=\"11\" value=\"0\">\n");
+    }  
+     	
 		
 		
     if ($Client=="Administrator"){

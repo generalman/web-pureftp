@@ -4,10 +4,10 @@
     echo ("<tr bgcolor=\"#FFFFFF\">\n");
 		echo ("<td>\n");
     		
-		echo ("<table border=\"0\" cellpadding=\"0\" cellspacing=\"1\" width=\"850\">\n");
-		echo ("<tr>\n");
-		echo ("<td>\n");
-		echo ("<font size=\"+1\">&nbsp;".$Translate[105]."</font>\n");
+		echo ("<table class=\"banniere\" border=\"0\" cellpadding=\"0\" cellspacing=\"1\" width=\"850\">\n");
+		echo ("<tr >\n");
+		echo ("<td >\n");
+		echo ("<img hspace=\"1\" src=\"$LocationImages/sii.png\" align=\"middle\" border=\"0\"><font size=\"+1\">&nbsp;".$Translate[105]."</font>\n");
 		echo ("</td>\n");
 		echo ("<td align=\"right\">");
 		echo ("<a href=\"$_SERVER[PHP_SELF]\">");
@@ -163,7 +163,7 @@
 		echo ("</td></tr>\n");
 		
    echo ("</table>\n");   
-		         
+	echo ("<br><br>");	         
     /////////////////////FIN FORM ADMIN ///////////////////////////////
 
 

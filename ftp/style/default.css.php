@@ -70,6 +70,12 @@ tr.select_user {
 tr.select_locked_user {
 	background-color: rgb(235, 234, 219);
 }
+tr.select_warning_user {
+	background-color: rgb(255, 188, 122);
+}
+tr.select_critical_user {
+	background-color: rgb(255, 102, 102);
+}
 
 input.name {
 
@@ -254,5 +260,8 @@ td.last {
 
 .form .input { border: 1px solid #A5C2C8; line-height: 1.2em; padding: 5px 26px 5px 5px; margin: 0 0 5px 0; width: 537px; font: bold 1.2em Helvetiva, Arial, sans-serif; }
 
- 
+.banniere{
+	background-image:url(/ftp/images/banniere.png);
+	
+} 
 

@@ -57,7 +57,7 @@
 	echo ("<head>\n");
 	echo ("<title>".$Translate[30]." (".$Translate[0]." - ".$Translate[1].")</title>\n");
 	echo ("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=$CharSet\">\n");
-	echo ("<meta name=\"description\" content=\"The ‘User manager for PureFTPd’ is a software project from Machiel Mastenbroek,");
+	echo ("<meta name=\"description\" content=\"The ï¿½User manager for PureFTPdï¿½ is a software project from Machiel Mastenbroek,");
 	echo (" more information about this free software could be found on my website: http://machiel.generaal.net/index.php?subject=user_manager_pureftpd \">\n");
 
 	echo ("<link rel=\"stylesheet\" href=\"$StyleSheet\" type=\"text/css\" />\n");
@@ -112,20 +112,8 @@
 												<tr>
 													<td width="40" align="center"> <img src="<?=$LocationImages?>/user.gif" width="16" height="24"></td>
 													<td><?=$Translate[32]?><br>
-														<select name="LoginName">
-														<?php
-															$iCounter = 0;
-															while ($iCounter < $length_users)
-															{
-																$name = mysql_result($query_admin,$iCounter,"Username");
-																if ($_POST["LoginName"] == $name)
-																	echo ("<option selected=\"selected\">$name</option>\n");
-																else
-																	echo ("<option>$name</option>\n");
-																$iCounter++;
-															}
-														?>
-														</select>
+														<input type="LoginName" name="LoginName" size="20">
+														
 													</td>
 													<td width="17">&nbsp;</td>
 												</tr>

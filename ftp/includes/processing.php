@@ -89,6 +89,7 @@
 		$length_admin = mysql_numrows($query_admin_all);
 		$length_restore = mysql_numrows($query_restore);
 		$length_users_restore = mysql_numrows($query_restore);
+		$length_users_uniq = mysql_numrows($query_users_uniq);
 		
 		// Function: compare_array ();
 		// Returns the position of '$word' in the array '$array'
@@ -226,13 +227,22 @@
 			
 
 			// Find out of user exist
-			while ($iCounter < $length_users)
+			while ($iCounter < $length_users_uniq)
 			{
-				$message_nr = mysql_result($query_users,$iCounter,"User");
-				$message_client = mysql_result($query_users,$iCounter,"Client");
-				if (($message_nr == $_POST['username_box'])&&($message_client == $_POST['client_box']))
+				
+				$message_nr = mysql_result($query_users_uniq,$iCounter,"User");
+				$message_client = mysql_result($query_users_uniq,$iCounter,"Client");
+				if ($message_nr == $_POST['username_box'])
 				{
-					$iExistUser=1;
+					
+					if ($message_client!=$_POST['client_box']){
+						
+						$iExistUser=2;
+						
+					}
+					else{
+						$iExistUser=1;
+					}
 					break;
 				}
 				$iCounter++;
@@ -268,7 +278,7 @@
         
      }
      //cas ou l'utilisateur n'existe pas
-      if ($iExistUser != 1)
+      if ($iExistUser == 0)
 			{
         $QuotaAddition =   $QuotaAddition +  $_POST['quotasize_box'];
       }
@@ -289,11 +299,12 @@
      /////////////////////////////FIN LIMITATION QUOTA ///////////////// 
 
      
-			// Utilisateur existant donc c'est une modification
-			if ($iExistUser == 1)
+			// Utilisateur existant et appartient au client donc c'est une modification
+			if ($iExistUser != 0)
 			{
+				
         // Attention Quota explosé
-        if ($QuotaFull==1){
+        if (($QuotaFull==1)&&($Client!="Administrator")){
           echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
 					echo ("<!--\n\n");
 					echo ("  alert(\"".$Translate[111]."\");\n\n");
@@ -303,8 +314,8 @@
         
         }
         else{
-        //Attention l'utilisateur existe deja
-        if ($_POST['new_box']==1){
+        //Attention l'utilisateur existe deja chez un autre client ou chez ce client mais c'est une création qui est demandé.
+        if (($_POST['new_box']==1)|| ($iExistUser == 2)){
           echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
 					echo ("<!--\n\n");
 					echo ("  alert(\"".$Translate[123]."\");\n\n");
@@ -353,7 +364,7 @@
   																							Ipaddress='".$_POST['ipaddress_box']."',
   																							Client='".$_POST['client_box']."',
   																							Comment='".$_POST['comment_box']."'
-  																							WHERE User='".$_POST['username_box']."' and Client='".$_POST['client_box']."'",$link))
+  																							WHERE User='".$_POST['username_box']."'",$link))
   						{
   							echo ("<br>Error: Not a valid UPDATE query.<br>");
   							echo ("<br>MySql errorss : ".mysql_error());
@@ -375,7 +386,7 @@
   																					Status='".$_POST['status_box']."',
   																					Ipaddress='".$_POST['ipaddress_box']."',
   																					Comment='".$_POST['comment_box']."'
-  																					WHERE User='".$_POST['username_box']."' and Client='".$_POST['client_box']."'",$link))
+  																					WHERE User='".$_POST['username_box']."'",$link))
   						{
   							echo ("<br>Error: Not a valid UPDATE query.<br>");
   							echo ("<br>MySql error : ".mysql_error());

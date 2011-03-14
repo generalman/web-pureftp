@@ -3,15 +3,15 @@
 
 
     ////////////AFFICHAGE LISTE UTILISATEUR///////////////////////////
-    echo ("<br><br>");
+    
 		echo ("<table class=\"select_user\" border=\"0\" cellpadding=\"1\" cellspacing=\"1\" width=\"850\">\n");
 		echo ("<tr bgcolor=\"#FFFFFF\">\n");
 		echo ("<td>\n");
     		
-		echo ("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"850\">\n");
-		echo ("<tr>\n");
+		echo ("<table class=\"banniere\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"850\">\n");
+		echo ("<tr >\n");
 		echo ("<td>\n");
-		echo ("<font size=\"+1\">&nbsp;".$Translate[0]."</font>\n");
+		echo ("<img hspace=\"1\" src=\"$LocationImages/sii.png\" align=\"middle\" border=\"0\"><font size=\"+1\">&nbsp;".$Translate[0]."</font>\n");
 		echo ("</td>\n");
 		echo ("<td align=\"right\">");
 		if ($Client!="Administrator"){
@@ -117,10 +117,30 @@
   							echo ("<br>MySql error : ".mysql_error());
       	      }
 
-			if ($status == 1)
-				echo ("<tr class=\"select_user\">\n");
+			
+			
+			
+			
+			if ($status == 1){
+				//Quota Warning
+				
+				if (($quotapourcent > 80)&&($quotapourcent < 90)){
+					echo ("<tr class=\"select_warning_user\">\n");
+					
+					
+				}
+				//Quota Critical
+				elseif ($quotapourcent > 90){
+					echo ("<tr class=\"select_critical_user\">\n");
+					
+				}
+				else {
+					echo ("<tr class=\"select_user\">\n");
+				}
+			}
 			else
 				echo ("<tr class=\"select_locked_user\">\n");
+				
 
 
 			echo ("<td align=\"left\" width=\"140\">");
@@ -476,9 +496,9 @@
       echo ("</tr>\n"); 
       echo ("<tr class=\"edit_user\">\n");
       echo ("<td class=\"border_lr\" width=\"$small_erea\">".$Translate[112]."</td>\n");
-      echo ("</td>\n");
+      //echo ("</td>\n");
 	    
-    	echo ("<td class=\"border_lr\" colspan=\"2\"><select name=\"select_uid\" onchange='change_uid_gid(this);'  style='width: 140px;'>");
+    	echo ("<td class=\"border_lr\" colspan=\"2\"><table><tr><td><select id=\"select_uid\" name=\"select_uid\" onchange='change_uid_gid(this);'  style='width: 140px;'>");
 		echo ("<option value=\"\"  ");if ($uid==""){echo ("selected=\"selected\"");}echo (">Droits Utilisateurs</option>");
 		  
 			echo ("<option value=\"2001\" ");if ($uid=="2001"){echo ("selected=\"selected\"");}echo (">Lecture et Ecriture</option>");
@@ -489,10 +509,8 @@
 			
 		 
     
-		  echo ("</select>\n");
-	
+		  echo ("</select></td><td>\n");
 
-		  
 		  echo ($Translate[120]);
 		  //echo ("</td>\n");
       // Seclection du repertoire de lecture 
@@ -504,7 +522,7 @@
       //echo ("</td>\n");
 	    
     	//echo ("<td class=\"border_lrtb\" colspan=\"2\">
-      echo ("<select name=\"select_dir_user\" onchange='document.newuserform.dir_box.value=this.value;'  style='width: 140px;'>");
+      echo ("</td><td><select id=\"select_dir_user\" name=\"select_dir_user\" onchange='document.newuserform.dir_box.value=this.value;'  style='width: 140px;'>");
 		echo ("<option value=\"".$DefaultDir."/".$user."\" selected=\"selected\">".$Translate[35]."</option>");
 		   $iCounter = 0;
 
@@ -520,7 +538,7 @@
 			
 		 
     
-		  echo ("</select>\n");
+		  echo ("</select></td></tr></table>\n");
 		  echo ("</td>\n"); 
 		  echo ("</tr>\n");  
 		 /* echo ("<tr class=\"edit_user\">\n");

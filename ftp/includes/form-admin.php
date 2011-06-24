@@ -56,6 +56,7 @@
 			$defaultdir          = mysql_result($query_admin_all,$iCounter2,"DefaultDir");
 			$client          = mysql_result($query_admin_all,$iCounter2,"Client");
 			$quotaclient          = mysql_result($query_admin_all,$iCounter2,"QuotaClient");
+			$quotaclient = $quotaclient/1000; //Giga Affichage
       	
       echo ("<tr class=\"select_user\">\n");
 			echo ("<td align=\"left\" style=\"padding-left: 3px;\">".$user."</td>\n");
@@ -65,7 +66,7 @@
 			   echo ("<td align=\"left\" style=\"padding-left: 2px;\">".$client."</td>\n");
 			
 			
-			echo ("<td align=\"left\" style=\"padding-left: 2px;\">".$quotaclient." MB </td>\n");
+			echo ("<td align=\"left\" style=\"padding-left: 2px;\">".$quotaclient." GB </td>\n");
 			 
 			echo ("<td align=\"left\" style=\"padding-left: 2px;\" ");if (!is_dir($defaultdir)){echo "bgcolor=\"Red\"";} echo (">".$defaultdir."</td>\n");
 			echo ("<td align=\"left\" style=\"padding-left: 2px;\">");
@@ -115,6 +116,7 @@
 					//$password     = mysql_result($query_admin_all,$iCounter,"Password");
 					$admin3_dir          = mysql_result($query_admin_all,$iCounter,"DefaultDir");
 					$admin3_quota          = mysql_result($query_admin_all,$iCounter,"QuotaClient");
+					$admin3_quota = $admin3_quota /1000; # Affichage Giga
 					$admin3_client          = mysql_result($query_admin_all,$iCounter,"Client");       
 					break;
 				}
@@ -129,7 +131,7 @@
 			$admin3_password_confirm = $_POST['admin3_password_confirm'];
 			$admin3_dir       = $_POST['admin3_dir'];
 			$admin3_client    = $_POST['admin3_client'];
-			$admin3_quota    = $_POST['admin3_quota'];
+			$admin3_quota    = $_POST['admin3_quota']/1000; // Giga
 
 		}else
 		{

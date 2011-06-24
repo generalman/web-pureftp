@@ -34,7 +34,7 @@ $.fn.passwordStrength = function( options ){
 				.addClass( this.opts.classes[ t ] );
 				
 		})
-		.after('<a href="#"><img src=\"/ftp/images/password.png\" height=\"20\" width=\"20\"" title="Générer un mot de passe" border=0 ></a>')
+		.after('<a href="#"><img src=\"/images/password.png\" height=\"20\" width=\"20\"" title="Générer un mot de passe" border=0 ></a>')
 		.next()
 		.click(function(){
 			$(this).prev().val( randomPassword() ).trigger('keyup');

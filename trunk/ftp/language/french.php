@@ -88,12 +88,12 @@
   $Translate[117] = "Droits";
   $Translate[118] = "Vous ne pourrez pas réactiver ce compte tant que son répertoire de base ne sera pas créé par un utilisateur qui possède les droits d'écriture.";
   $Translate[119] = "Gestion de la Corbeille utilisateur";
-  $Translate[120] = " dans le répertoire de l'utilisateur <img src=\"/ftp/images/arrow_right.gif\" ";
+  $Translate[120] = " dans le répertoire de l'utilisateur <img src=\"/images/arrow_right.gif\" ";
   $Translate[121] = "Rafraîchir";
   $Translate[122] = "Vous ne pouvez pas créer plusieurs utilisateurs du même nom";
   $Translate[123] = "Attention : L\'utilisateur existe déjà!!!";
   $Translate[124] = "Attention : Vérifiez la validité de votre mot de passe. Il doit comporter au moins une majuscule, une minuscule et au moins 6 caractères!!";
   $Translate[125] = "Mot de passe";
-  $Translate[126] = "<b><u>Générateur de mot de passe : </u></b><br>L'icone <img src=\"/ftp/images/password.png\" height=\"20\" width=\"20\"  border=0 > vous permet de générer un mot de passe fort et ainsi sécurisé un minimum le comte de votre utilisateur.<br><br> <b>Attention</b> :<br> Ce compte sera accessible du monde Internet, N'importe qui peut tenter d'acceder à ce compte. Plus le mot de passe est compliqué, plus il sera difficile à un pirate d'y accéder.<br><br> <b><u>Visualiser le mot de passe : </u></b><br> La case à cocher \"Voir\" permet de visualiser le mot de passe que vous avez généré ou tapé.<br><br> <b><u>Fonctionnement :</u></b><br>Lorsque vous généré un mot de passe automatiquement, le mot de passe est automatiquement copié dans le champ de confirmation.''";
+  $Translate[126] = "<b><u>Générateur de mot de passe : </u></b><br>L'icone <img src=\"/images/password.png\" height=\"20\" width=\"20\"  border=0 > vous permet de générer un mot de passe fort et ainsi sécurisé un minimum le comte de votre utilisateur.<br><br> <b>Attention</b> :<br> Ce compte sera accessible du monde Internet, N'importe qui peut tenter d'acceder à ce compte. Plus le mot de passe est compliqué, plus il sera difficile à un pirate d'y accéder.<br><br> <b><u>Visualiser le mot de passe : </u></b><br> La case à cocher \"Voir\" permet de visualiser le mot de passe que vous avez généré ou tapé.<br><br> <b><u>Fonctionnement :</u></b><br>Lorsque vous généré un mot de passe automatiquement, le mot de passe est automatiquement copié dans le champ de confirmation.''";
   $Translate[127] = "Restorer le compte à son emplacement d'origine";
   ?>

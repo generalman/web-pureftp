@@ -315,7 +315,7 @@
 
 		}else
 		{
-                        echo $QuotaGlobal;
+                       
 			$user             = $Translate[10];
 			$password         = "";
 			$confirm_password = "";

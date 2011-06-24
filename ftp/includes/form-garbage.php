@@ -136,11 +136,11 @@
 			/* Restore ftp account */
 			echo ("<a href=\"$_SERVER[PHP_SELF]\" onClick=\"danger_popup('$user',this.href+'?restore=1&username_box=$user');return false;\">");
 			if ($status == 1)
-				echo ("<img src=\"$LocationImages/delete.gif\" width=\"15\" height=\"16\" border=\"0\" ");
+				echo ("<img src=\"$LocationImages/restore.png\" width=\"20\" height=\"21\" border=\"0\" ");
 			else
-				echo ("<img src=\"$LocationImages/delete_gray.gif\" width=\"15\" height=\"16\" border=\"0\" ");
-			echo ("title=\"".$Translate[61]."\" ");
-			echo ("alt=\"".$Translate[61]."\"></a>&nbsp;&nbsp;");
+				echo ("<img src=\"$LocationImages/restore.png\" width=\"20\" height=\"21\" border=\"0\" ");
+			echo ("title=\"".$Translate[127]."\" ");
+			echo ("alt=\"".$Translate[127]."\"></a>&nbsp;&nbsp;");
 
 			echo ("</td>\n");
 			echo ("</tr>\n");

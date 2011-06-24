@@ -495,6 +495,10 @@
 			$emptyadmin_password = 0;
 			$vallidadmin_password = 1;
 			
+			if(isset($_POST['admin3_quota']))
+		{
+			$_POST['admin3_quota']=$_POST['admin3_quota']*1000;
+		}
 			
 
 			// check if password if filled

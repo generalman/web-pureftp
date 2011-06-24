@@ -315,7 +315,7 @@
 
 		}else
 		{
-		  
+                        echo $QuotaGlobal;
 			$user             = $Translate[10];
 			$password         = "";
 			$confirm_password = "";
@@ -324,7 +324,7 @@
 			$dir              = $DefaultDir."/".$user;
 			$status           = "1";
 			$quotafiles       = "1000";
-			$quotasize        = 10*100/$QuotaGlobal;
+			$quotasize        = $QuotaGlobal/100;
 			$ulbandwidth      = "0";
 			$dlbandwidth      = "0";
 			$dlratio          = "0";

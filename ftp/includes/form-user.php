@@ -263,7 +263,7 @@
 					// $password     = mysql_result($query_users,$iCounter,"Password");
 					$uid          = mysql_result($query_users,$iCounter,"Uid");
 					$gid          = mysql_result($query_users,$iCounter,"Gid");
-					$dir          = mysql_result($query_users,$iCounter,"Dir");
+					$dir2          = mysql_result($query_users,$iCounter,"Dir");
 					$status       = mysql_result($query_users,$iCounter,"Status");
 					$quotafiles   = mysql_result($query_users,$iCounter,"QuotaFiles");
 					$quotasize    = mysql_result($query_users,$iCounter,"QuotaSize");
@@ -509,9 +509,9 @@
 			
 		 
     
-		  echo ("</select></td><td>\n");
+		  echo ("</select><br></td></tr></table>\n");
 
-		  echo ($Translate[120]);
+		  //echo ($Translate[120]);
 		  //echo ("</td>\n");
       // Seclection du repertoire de lecture 
       
@@ -522,7 +522,7 @@
       //echo ("</td>\n");
 	    
     	//echo ("<td class=\"border_lrtb\" colspan=\"2\">
-      echo ("</td><td><select id=\"select_dir_user\" name=\"select_dir_user\" onchange='document.newuserform.dir_box.value=this.value;'  style='width: 140px;'>");
+     /* echo ("</td><td><select id=\"select_dir_user\" name=\"select_dir_user\" onchange='document.newuserform.dir_box.value=this.value;'  style='width: 140px;'>");
 		echo ("<option value=\"".$DefaultDir."/".$user."\" selected=\"selected\">".$Translate[35]."</option>");
 		   $iCounter = 0;
 
@@ -534,13 +534,267 @@
 			echo ("<option value=\"$dir_users\"");if ($user==$user_dir){echo ("selected=\"selected\"");}echo (">$user_dir</option>");
 			$iCounter++;
  		
-		}	
+		}	*/
 			
 		 
     
-		  echo ("</select></td></tr></table>\n");
-		  echo ("</td>\n"); 
-		  echo ("</tr>\n");  
+		  echo ("</select>");
+                      
+// DEBUT DIR    
+// 
+                  if (!isset($dir2)){
+                  $dir2=$_POST['dir_box2'];}
+                  
+               
+
+if (substr_count($dir2, $DefaultDir)==0){
+                
+                    $dir2=$DefaultDir;
+                    
+                    
+                }
+                   
+                if ($new==1){
+                   
+                    $dir2_string=$DefaultDir;
+                }
+                else{
+                    
+                    $dir2_string=$dir2;
+                }
+                
+
+		echo ("<input type=\"hidden\" name=\"dir_box2\"  value=\"$dir2\">\n");
+
+		echo ("<tr class=\"edit_user\">\n");
+		echo ("<td class=\"border_ltb\" width=\"$small_erea\">".$Translate[35]."</td>\n");
+		echo ("<td class=\"border_ltb\" width=\"$middle_erea\">\n&nbsp;");
+
+               
+//		echo ("<input type=\"text\" name=\"dir_box2\" size=\"40\" maxlength=\"128\" value=\"$dir2\">\n");
+
+
+		//echo ("<input type=\"hidden\" name=\"dir_box2\"  value=\"$dir2\">\n");
+                    
+		if (substr($dir2, -1) == "/") // last char is '/'
+			$dir2_string = substr($dir2, 0, -1); // remove last char
+		else
+			$dir2_string = $dir2;
+                
+                
+                   
+
+		foreach(explode("/",$dir2_string) as $element)
+		{
+			if(empty($element)) // first element
+			{
+				$dir2_url = "/";
+				echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { dir_box2.value='$dir2_url'; submit();}\">");
+				echo ("/");
+				echo ("</a>");
+			}else
+			{
+				$dir2_url = "$dir2_url$element/";
+				echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { dir_box2.value='$dir2_url'; submit();}\">");
+				echo ($element);
+				echo ("</a>");
+				echo ("/");
+			}
+		}
+               
+		echo ("</td>\n");
+
+
+
+		echo ("<td class=\"border_rtb\" align=\"right\">");
+
+		if (isset($_POST['dirbrowser_box'])) // get new value
+			$_SESSION['dirbrowser'] = $_POST['dirbrowser_box'];
+
+		if(!isset($_SESSION['dirbrowser'])) //  set default value
+			$_SESSION['dirbrowser'] = "0";
+                         
+                
+
+
+		echo ("<input type=\"hidden\" name=\"dirbrowser_box\" value=\"".$_SESSION['dirbrowser']."\">\n");
+
+
+		if ($_SESSION['dirbrowser'] == 0)
+		{
+			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { dirbrowser_box.value='1'; submit();}\">");
+			echo ("<img src=\"$LocationImages/arrow_up.gif\" class=\"icon\"");
+			echo ("title=\"".$Translate[65]."\" ");
+			echo ("alt=\"".$Translate[65]."\"></a>");
+
+		}else
+		{
+			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { dirbrowser_box.value='0'; submit();}\">");
+			echo ("<img src=\"$LocationImages/arrow_down.gif\" class=\"icon\" ");
+			echo ("title=\"".$Translate[66]."\" ");
+			echo ("alt=\"".$Translate[66]."\"></a>");
+
+		}
+
+		echo ("</td>");
+		echo ("</tr>\n");
+
+                
+
+
+		if($_SESSION['dirbrowser'] == 1)
+		{
+		echo ("<tr class=\"edit_user\">\n");
+
+		echo ("<td class=\"border_ltb\"width=\"$small_erea\">&nbsp;</td>\n");
+		echo ("<td class=\"border_lrtb\" colspan=\"2\" bgcolor=\"#FFFFFF\">\n");
+
+
+
+
+		echo ("<div id=\"dirbrowser_layer\" style=\"position:relative; width:100%; height:300; z-index:1; left: 0px; top: 0px; overflow: auto\">\n");
+
+		if (isset($_POST['sort_box'])) // get last value
+			$sort	= $_POST['sort_box'];
+
+
+		if(!isset($sort)) //  set default value
+			$sort = "name";
+
+
+			echo ("<input type=\"hidden\" name=\"sort_box\" value=\"$sort\">\n");
+			echo ("<table width=\"100%\" class=\"header\">\n");
+
+			echo ("<tr>\n");
+			echo ("<td class=\"header-left\">\n");
+
+
+			// todo class head doenst exist?
+
+			// echo ("<a href=\"".$_SERVER[PHP_SELF]."?sort=name\" class=\"head\">Name</a>\n");
+			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { sort_box.value='name'; submit();}\" class=\"head\">".$Translate[80]."</a>\n");
+			echo ("</td>\n");
+			echo ("<td class=\"header-right\">\n");
+			// echo ("<a href=\"".$_SERVER[PHP_SELF]."?sort=size\" class=\"head\">Size</a>\n");
+			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { sort_box.value='size'; submit();}\" class=\"head\">".$Translate[81]."</a>\n");
+			echo ("</td>\n");
+			echo ("<td class=\"header-left\">\n");
+			// echo ("<a href=\"".$_SERVER[PHP_SELF]."?sort=type\" class=\"head\">Type</a>\n");
+			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { sort_box.value='type'; submit();}\" class=\"head\">".$Translate[82]."</a>\n");
+			echo ("</td>\n");
+			echo ("<td class=\"header-left\">\n");
+			// echo ("<a href=\"".$_SERVER[PHP_SELF]."?sort=modify\" class=\"head\">Changed</a>\n");
+			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { sort_box.value='modify'; submit();}\" class=\"head\">".$Translate[83]."</a>\n");
+			echo ("</td>\n");
+			echo ("<td class=\"header-left\">\n");
+			// echo ("<a href=\"".$_SERVER[PHP_SELF]."?sort=owner\" class=\"head\">Owner</a>\n");
+			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { sort_box.value='owner'; submit();}\" class=\"head\">".$Translate[84]."</a>\n");
+			echo ("</td>\n");
+			echo ("<td class=\"header-left\">\n");
+			// echo ("<a href=\"".$_SERVER[PHP_SELF]."?sort=group\" class=\"head\">Group</a>\n");
+			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { sort_box.value='group'; submit();}\" class=\"head\">".$Translate[85]."</a>\n");
+			echo ("</td>\n");
+			echo ("<td class=\"last-header\">\n");
+			// echo ("<a href=\"".$_SERVER[PHP_SELF]."?sort=permission\" class=\"head\">Attributes</a>\n");
+			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { sort_box.value='permission'; submit();}\" class=\"head\">".$Translate[86]."</a>\n");
+			echo ("</td>\n");
+			echo ("</tr>\n");
+
+			$dir2ectoryListing = new directorylist ($dir2);
+
+
+
+
+			if (strlen($dir2ectoryListing->error) != 0)
+			{
+					echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
+					echo ("<!--\n\n");
+					echo ("  alert(\"".$Translate[26]."\");\n\n");
+					echo ("-->\n");
+					echo ("</script>\n");
+			}
+
+			$dir2ectoryListing->order($sort,"ASC");
+
+
+			for ($iElement=0;$iElement < $dir2ectoryListing->nrof_elements();$iElement++)
+			{
+				$File = $dir2ectoryListing->directory_element($iElement);
+
+				if ($File->Type() != 'DIRECTORYREFRESH')
+				{
+
+					echo ("<tr bgcolor=\"#FFFFFF\">\n");
+					echo ("<td class=\"left\" style=\"vertical-align:bottom\" title=\"".$File->Name()."\">");
+					if ($File->Type() == 'DIRECTORY' ||
+							$File->Type() == 'DIRECTORYUP')
+					{
+
+						echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { dir_box.value='".$File->Path()."';dir_box2.value='".$File->Path()."';saveScroll(); submit();}\">");
+						echo ("<img style=\"margin:0px 0px 2px ; vertical-align:middle\" src=\"$LocationImages/icons/".$File->Icon()."\" class=\"icon\" >");
+						echo ("<input style=\"width:170px; margin:0px 3px\" class=\"description\" value=\"".$File->Name()."\" name=\"textfield\" type=\"text\">");
+						echo ("</a>");
+
+					}else if ($File->Type() == 'FILE'){
+
+						echo ("<img style=\"margin:0px 0px 2px ; vertical-align:middle\" src=\"$LocationImages/icons/".$File->Icon()."\" class=\"icon\" >");
+						echo ("<input style=\"width:170px; margin:0px 3px\" class=\"description\" value=\"".$File->Name()."\" name=\"textfield\" type=\"text\">");
+					}
+
+					echo ("</td>\n");
+
+					if ($File->Type() == 'DIRECTORY' ||
+					    $File->Type() == 'DIRECTORYUP')
+					{
+						echo ("<td class=\"left\">");
+						echo ("&nbsp;");
+						echo ("</td>\n");
+					}else
+					{
+						echo ("<td class=\"left\" title=\"".$File->Size(0)."\">");
+						echo ("<input  style=\"width:50px; text-align: right;\" class=\"description\" value=\"".$File->Size(1)."\" name=\"textfield\" type=\"text\">");
+						echo ("</td>\n");
+					}
+
+					if($File->Description() != "") // not empty
+					{
+
+						echo ("<td class=\"left\" title=\"".$File->Description()."\">");
+						echo ("<input  style=\"width:110px;\" class=\"description\" value=\"".$File->Description()."\" name=\"textfield\" type=\"text\">");
+						echo ("</td>\n");
+					}
+					else
+						echo("<td class=\"left\">&nbsp;</td>\n");
+
+					echo ("<td class=\"left\">");
+					echo ("<input  style=\"width:80px;\" class=\"description\" value=\"".$File->Modify(2)."\" name=\"textfield\" type=\"text\">");
+					echo ("</td>\n");
+
+					echo ("<td class=\"left\" title=\"".$File->Owner()."\">");
+					echo ("<input  style=\"width:55px;\" class=\"description\" value=\"".$File->Owner()."\" name=\"textfield\" type=\"text\">");
+					echo ("</td>\n");
+
+					echo ("<td class=\"left\" title=\"".$File->Group()."\">");
+					echo ("<input  style=\"width:55px;\" class=\"description\" value=\"".$File->Group()."\" name=\"textfield\" type=\"text\">");
+					echo ("</td>\n");
+
+					echo ("<td class=\"left\">");
+					echo ("<input  style=\"width:70px;\" class=\"description\" value=\"".$File->Permission(1)."\" name=\"textfield\" type=\"text\">");
+					echo ("</td>\n");
+
+					echo("</tr>\n");
+				}
+			}
+			
+
+		}
+		
+                  
+                  // FIN DIR
+
+
+echo ("</td></tr></table></td></tr></table>\n");
+		
 		 /* echo ("<tr class=\"edit_user\">\n");
       echo ("<td class=\"border_ltb\" width=\"$small_erea\">".$Translate[113]."</td>\n");
       echo ("</td>\n");
@@ -561,7 +815,7 @@
 		//echo ("<td class=\"border_ltb\" width=\"$small_erea\">".$Translate[35]."</td>\n");
 		
 
-		//echo ("<input type=\"text\" name=\"dir_box\" size=\"40\" maxlength=\"128\" value=\"$dir\">\n");
+		//echo ("<input type=\"text\" name=\"dir_box2\" size=\"40\" maxlength=\"128\" value=\"$dir\">\n");
 		//echo ("</td>\n");
 		//echo ("<td class=\"border_lrtb\" colspan=\"2\">\n&nbsp;");
 		

@@ -353,7 +353,7 @@
   
   						if(!mysql_query("UPDATE users SET Uid='".$_POST['uid_box']."',
   																							Gid='".$_POST['gid_box']."',
-  																							Dir='".$_POST['dir_box']."',
+  																							Dir='".$_POST['dir_box2']."',
   																							QuotaFiles='".$_POST['quotafiles_box']."',
   																							QuotaSize='".$_POST['quotasize_box']."',
   																							ULBandwidth='".$_POST['ulbandwidth_box']."',
@@ -376,7 +376,7 @@
   						if(!mysql_query("UPDATE users SET Password='".md5($_POST['password_box'])."',
   																					Uid='".$_POST['uid_box']."',
   																					Gid='".$_POST['gid_box']."',
-  																					Dir='".$_POST['dir_box']."',
+  																					Dir='".$_POST['dir_box2']."',
   																					QuotaFiles='".$_POST['quotafiles_box']."',
   																					QuotaSize='".$_POST['quotasize_box']."',
   																					ULBandwidth='".$_POST['ulbandwidth_box']."',
@@ -420,7 +420,7 @@
   				if ($vallid_password != 0 || $empty_password != 1 )
   				{
   				 if  ($_POST['uid_box']!="2001"){
-               if (!is_dir($_POST['dir_box']))
+               if (!is_dir($_POST['dir_box2']))
                   $_POST['status_box']=0;
                   $block_user=1;
                  echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
@@ -435,7 +435,7 @@
   																							'".md5($_POST['password_box'])."',
   																							'".$_POST['uid_box']."',
   																							'".$_POST['gid_box']."',
-  																							'".$_POST['dir_box']."',
+  																							'".$_POST['dir_box2']."',
   																							'".$_POST['quotafiles_box']."',
   																							'".$_POST['quotasize_box']."',
   																							'".$_POST['ulbandwidth_box']."',

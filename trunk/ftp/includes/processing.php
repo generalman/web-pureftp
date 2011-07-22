@@ -339,8 +339,11 @@
   						echo ("</script>\n");
   
                $block_user  = mysql_result($query_users_uniq,0,"block");
+               
+               logger("Répertoire=".$_POST['dir_box2']);
      
                if    ($block_user=="1") {
+                    
                    $_POST['status_box']=0;
                    	echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
   					       	echo ("<!--\n\n");
@@ -420,6 +423,7 @@
   				if ($vallid_password != 0 || $empty_password != 1 )
   				{
   				 if  ($_POST['uid_box']!="2001"){
+                                
                if (!is_dir($_POST['dir_box2']))
                   $_POST['status_box']=0;
                   $block_user=1;
@@ -809,7 +813,7 @@
 		{
 		  
 		  $block_user  = mysql_result($query_users_uniq,0,"block");
-      
+      logger("Répertoire=".$_POST['dir_box2']);
       if    ($block_user=="1") {
          $_GET['lock']=0;
         	echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");

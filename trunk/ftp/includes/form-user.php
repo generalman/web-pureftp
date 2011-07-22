@@ -542,6 +542,8 @@
                       
 // DEBUT DIR    
 // 
+                  
+                  
                   if (!isset($dir2)){
                   $dir2=$_POST['dir_box2'];}
                   
@@ -604,7 +606,7 @@ if (substr_count($dir2, $DefaultDir)==0){
                
 		echo ("</td>\n");
 
-
+                
 
 		echo ("<td class=\"border_rtb\" align=\"right\">");
 
@@ -613,19 +615,75 @@ if (substr_count($dir2, $DefaultDir)==0){
 
 		if(!isset($_SESSION['dirbrowser'])) //  set default value
 			$_SESSION['dirbrowser'] = "0";
-                         
                 
+                if (isset($_POST['createfolder_box'])) // get new value
+			$_SESSION['createfolder'] = $_POST['createfolder_box'];
+
+		if(!isset($_SESSION['createfolder'])) //  set default value
+			$_SESSION['createfolder'] = "0";
+                
+                if ($_SESSION['createfolder'] == 1)
+                     {
+                     if (isset($_POST['newfolder_name_box'])){
+
+                               $nouveau_repertoire=$dir2."/".$_POST['newfolder_name_box'];
+                                 // vérifie si le répertoire existe :
+                                if (is_dir($nouveau_repertoire)) {
+                                    echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
+  					       	echo ("<!--\n\n");
+  					       	echo ("  alert(\"".$Translate[128]."\");\n\n");
+  					       	echo ("-->\n");
+  						      echo ("</script>\n");  
+                                    }
+                                // création du nouveau répertoire
+                                 else { 
+                                     if(!mkdir($nouveau_repertoire)){
+                                        
+                                        echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
+  					       	echo ("<!--\n\n");
+  					       	echo ("  alert(\"".$Translate[129]."\");\n\n");
+  					       	echo ("-->\n");
+  						      echo ("</script>\n"); 
+                                        
+                               
+                                     }
+                                     else{
+                                         //changement d'uid et de gid
+                                         
+                                         
+                                        $ligne = system('sudo chown ftpuser:ftpro '.$nouveau_repertoire);
+                                        if ($ligne!=0){
+                                            logger ("Impossible de changer le owner du répertoire : ".$nouveau_repertoire);
+                                        }
+                                        $ligne = system('sudo chmod 757 '.$nouveau_repertoire);
+                                        if ($ligne!=0){
+                                            logger ("Impossible de changer les droits du répertoire : ".$nouveau_repertoire);
+                                        }
+
+ 
+                                       
+                                     }
+                                     $_SESSION['createfolder'] =0;
+                                }
+                    }
+                }
 
 
 		echo ("<input type=\"hidden\" name=\"dirbrowser_box\" value=\"".$_SESSION['dirbrowser']."\">\n");
+                echo ("<input type=\"hidden\" name=\"createfolder_box\" value=\"".$_SESSION['createfolder']."\">\n");
+                echo ("<input type=\"text\" name=\"newfolder_name_box\" size=10 maxsize=20 value=\"\">\n");
 
+                echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { createfolder_box.value='1'; submit();}\">");
+                echo ("<img src=\"$LocationImages/new_folder.png\" class=\"icon\" alt=\"Créer un nouveau répertoire à cette emplacement\" /> \n");
 
 		if ($_SESSION['dirbrowser'] == 0)
 		{
-			echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { dirbrowser_box.value='1'; submit();}\">");
+			
+                        echo ("<a href=\"#\" onclick=\"with (document.forms[0]) { dirbrowser_box.value='1'; submit();}\">");
 			echo ("<img src=\"$LocationImages/arrow_up.gif\" class=\"icon\"");
 			echo ("title=\"".$Translate[65]."\" ");
 			echo ("alt=\"".$Translate[65]."\"></a>");
+                        
 
 		}else
 		{

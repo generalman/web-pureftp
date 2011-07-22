@@ -1,5 +1,27 @@
 <?php
+function logger($var){
+    
+    if (is_dir("/home/olivier/workspace/WebPureftpd/log")){
+        
 
+// 1 : on ouvre le fichier
+    
+    if (!($monfichier = fopen('/home/olivier/workspace/WebPureftpd/log/webpureftpd.log', 'a'))){
+    exit("Unable to open file!"); 
+    }
+    // 2 : on lit la première ligne du fichier
+    fputs($monfichier, $var."\n"); 
+
+    // 3 : quand on a fini de l'utiliser, on ferme le fichier
+    fclose($monfichier);
+    
+    
+    
+
+    
+}
+    
+}
 function information($var,$titre){
 	$reg = '|([^a-z0-9]+)|';
 	$chaine=preg_replace($reg, '-', htmlentities($titre));

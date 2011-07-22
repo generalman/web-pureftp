@@ -96,4 +96,6 @@
   $Translate[125] = "Mot de passe";
   $Translate[126] = "<b><u>Générateur de mot de passe : </u></b><br>L'icone <img src=\"/images/password.png\" height=\"20\" width=\"20\"  border=0 > vous permet de générer un mot de passe fort et ainsi sécuriser un minimum le compte de votre utilisateur.<br><br> <b>Attention</b> :<br> Ce compte étant accessible depuis Internet, il est essentiel de le rendre complexe afin d'éviter son piratage. <br><br> <b><u>Visualiser le mot de passe : </u></b><br> La case à cocher \"Voir\" permet de visualiser le mot de passe que vous avez généré ou saisi.<br><br> <b><u>Fonctionnement :</u></b><br>Lorsque vous générez le mot de passe automatiquement, ce dernier est recopié dans le champ de confirmation.''";
   $Translate[127] = "Restorer le compte à son emplacement d'origine";
+  $Translate[128] = "Le répertoire existe déjà. Impossible de le créer";
+  $Translate[129] = "Impossible de créer le répertoire. Verifiez les droits";
   ?>

@@ -26,6 +26,11 @@
   $UsersFile = "/etc/passwd";        // The unix user file
 
   $GroupFile = "/etc/group";         // The unix group file
+  
+  $groupRO = "ftpro";         // group for read only
+  
+  $userRW = "ftpuser";         // group for read only
+  
 
   $StyleSheet = "style/default.css.php"; // The location of the style sheet
 

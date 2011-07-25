@@ -264,6 +264,7 @@
 					$uid          = mysql_result($query_users,$iCounter,"Uid");
 					$gid          = mysql_result($query_users,$iCounter,"Gid");
 					$dir2          = mysql_result($query_users,$iCounter,"Dir");
+                                        $dir          = mysql_result($query_users,$iCounter,"Dir");
 					$status       = mysql_result($query_users,$iCounter,"Status");
 					$quotafiles   = mysql_result($query_users,$iCounter,"QuotaFiles");
 					$quotasize    = mysql_result($query_users,$iCounter,"QuotaSize");
@@ -301,7 +302,7 @@
 		     $dlratio          = $_POST['dlratio_box'];
 			   $ulratio          = $_POST['ulratio_box'];
 			   $ipaddress        = $_POST['ipaddress_box'];
-         $dir              = $_POST['dir_box'];		   
+         $dir               = $_POST['dir_box2'];		   
       }
       else{
          $ulbandwidth      = "0";
@@ -629,6 +630,7 @@ if (substr_count($dir2, $DefaultDir)==0){
                                $nouveau_repertoire=$dir2."/".$_POST['newfolder_name_box'];
                                  // vérifie si le répertoire existe :
                                 if (is_dir($nouveau_repertoire)) {
+                                    unset($_SESSION['createfolder']); 
                                     echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
   					       	echo ("<!--\n\n");
   					       	echo ("  alert(\"".$Translate[128]."\");\n\n");
@@ -638,7 +640,7 @@ if (substr_count($dir2, $DefaultDir)==0){
                                 // création du nouveau répertoire
                                  else { 
                                      if(!mkdir($nouveau_repertoire)){
-                                        
+                                        unset($_SESSION['createfolder']); 
                                         echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
   					       	echo ("<!--\n\n");
   					       	echo ("  alert(\"".$Translate[129]."\");\n\n");
@@ -649,21 +651,23 @@ if (substr_count($dir2, $DefaultDir)==0){
                                      }
                                      else{
                                          //changement d'uid et de gid
+                                        
+                                        $command='sudo chown '.$userRW.':'.$groupRO.' '.$nouveau_repertoire; 
                                          
-                                         
-                                        $ligne = system('sudo chown ftpuser:ftpro '.$nouveau_repertoire);
+                                        $ligne = system($command);
                                         if ($ligne!=0){
                                             logger ("Impossible de changer le owner du répertoire : ".$nouveau_repertoire);
                                         }
-                                        $ligne = system('sudo chmod 757 '.$nouveau_repertoire);
+                                        $command='sudo chmod 757 '.$nouveau_repertoire;
+                                        $ligne = system($command);
                                         if ($ligne!=0){
                                             logger ("Impossible de changer les droits du répertoire : ".$nouveau_repertoire);
                                         }
-
+                                        
  
                                        
                                      }
-                                     $_SESSION['createfolder'] =0;
+                                     unset($_SESSION['createfolder']); 
                                 }
                     }
                 }
@@ -883,7 +887,7 @@ echo ("</td></tr></table></td></tr></table>\n");
       echo ("<tr class=\"edit_user\">\n");
 		  echo ("<td class=\"border_lrb\" width=\"$small_erea\">".$Translate[35]."</td>\n");
       echo ("<td class=\"border_lrb\" width=\"$large_erea\">\n&nbsp;");
-      echo ("<input type=\"text\" name=\"dir_box\"  value=\"$dir\">\n");
+      echo ("<input type=\"text\" name=\"dir_box2\"  value=\"$dir\">\n");
       echo ("</td>\n");
       echo ("<td class=\"border_rb\" width=\"$small_erea\">".$Translate[108]."</td>\n");
       echo ("<td class=\"border_rb\" width=\"$large_erea\">\n&nbsp;");

@@ -43,6 +43,11 @@ a:hover {
 .help {
 	cursor: help
 }
+.titre {
+	color: #FFFFFF;
+        font-weight: bold;
+        font-size: 20;
+}
 
 /* Login page */
 

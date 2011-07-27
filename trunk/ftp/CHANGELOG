@@ -1,3 +1,54 @@
+1.0 : ( 27-07-2011 )
+* Ajout de la librairie jquery au code pour Ã©viter les problÃ¨mes https
+
+
+1.0 RC3 : ( 04-07-2011 )
+* Suite de la rÃ©organisation du code
+* Les administrateurs peuvent choisir le rÃ©pertoire home. 
+Il n'est plus obligatoire qu'il appartienne dÃ©jÃ  Ã  un utilisateur
+* Les administrateurs peuvent crÃ©er une arborescence
+* Correction de bugs
+
+1.0 RC2 : ( 01-06 -2011 )
+* Suite de la rÃ©organisation du code
+* Correction bugs
+* Correction fautes d'orthographes
+* AmÃ©lioration de l'interface graphique : banniÃ¨re + icones
+
+1.0 RC1 : ( 02-02-2011 )
+* RÃ©organisation du code
+* AmÃ©lioration de l'interface graphique ( Liste dÃ©roulante en jquery + bubble jquery )
+* Correction de bug de fonctionnement et d'affichage
+* CrÃ©ation du documents d'installation et du manuel utilisateur
+
+Avant 1.0 RC1
+* CrÃ©ation d'une interface superadmin permettant de :
+    - CrÃ©er / modifier / supprimer des administrateurs par client ou par service
+    - Visualiser l'ensembles des comptes crÃ©Ã©s
+    - Attribuer des quotas aux administrateurs
+    - Restaurer les utilisateurs supprimÃ©s
+    - CrÃ©er / modifier / supprimer des utilisateurs de maniÃ¨res dÃ©taillÃ© (UID, GID... )
+
+* CrÃ©ation d'une interface administrateur permettant de :
+    - CrÃ©er / modifier / supprimer des utilisateurs de maniÃ¨res simple
+    - Lister les utilisateurs crÃ©Ã©s par le client ou l'administrateur de service
+    - GÃ©rer les quotas utilisateurs (nombre de fichiers et espace disque)
+    - CrÃ©Ã© des comptes en lecture seule ou lecture Ã©criture
+    - CrÃ©er plusieurs comptes utilisateurs pour un emplacement existant.
+    - GÃ©nÃ©rer un mot de passe fort
+    - DÃ©sactiver un utilisateur
+
+
+
+ 
+
+- Ajout de fonctionnalitÃ© :
+GÃ©nÃ©rateur de mot de passe fort
+Ajout du quota utilisÃ© par Utilisateur
+
+
+Fork du projet par Olivier Legras ( 01-01-2011 )
+
 Version 2.1 (29-9-2005)
 
 Korean translation added.
@@ -6,10 +57,10 @@ Chinese translation added.
 Italian translation added.
 Changed both style sheets, default and orange. 
   Reduce the number of font types to 1 single font Verdana.
-  Improved the out lining of attributes like text, input boxes, and icon’s / images.
-Add a image ‘ftpuser_gray.gif’, used when u disable (locked) an ftp account.
+  Improved the out lining of attributes like text, input boxes, and iconï¿½s / images.
+Add a image ï¿½ftpuser_gray.gifï¿½, used when u disable (locked) an ftp account.
 Saves the offset (location) of the horizontal and vertical scrollbar, 
-  useful when the page doesn’t fit entirely on the screen and you use the file browser.
+  useful when the page doesnï¿½t fit entirely on the screen and you use the file browser.
 Fixed a problem with the file size (function filesize from PHP) in the file browser, 
   some files larger that 2GB shows unexpected results. 
 Added a cross-browser Tooltip JavaScript to create tooltips, 
@@ -35,7 +86,7 @@ Added a Notes field, this allows the administrator to simply write some notes ab
 Added a user friendly directory browser, allows the administrator to easily choose a home directory for an FTP account.
 - constants.php and files.php are part of the directory browser
 Reorganised the language files, many words and senses are added, 
-system messages like ‘database not found’ are not longer translated, just only the user interface.
+system messages like ï¿½database not foundï¿½ are not longer translated, just only the user interface.
 Removed old languages, out of date.
 New available languages are:
 - English
@@ -46,8 +97,8 @@ New available languages are:
 - Slovenian
 Added a user friendly installation wizard (install.php) this allows the administrator to easily install this software. Functions that are embedded:
 - Install, upgrade, or change the database with tables.
-- Easily configure the ‘User manager for PureFTPd’, just click and type the options you want.
-- Easily change or add users that are allowed to use the ‘User manager for PureFTPd’.
+- Easily configure the ï¿½User manager for PureFTPdï¿½, just click and type the options you want.
+- Easily change or add users that are allowed to use the ï¿½User manager for PureFTPdï¿½.
 - Generates the configuration file for PureFTPd
 Changed the stylesheets.
 
@@ -79,9 +130,9 @@ Version 1.2.8 (28-2-2004)
 
 Correct the variable name $ENGLISCH to $ENGLISH.
 Added version number into the login page (index.php).
-Replaced the ‘error message’ from the login page outside the html table.
-Bug fix with the session variable ‘Login’ on line 35 from index.php.
-Added the text 'Don’t change this if you are using the default database.' in config.php
+Replaced the ï¿½error messageï¿½ from the login page outside the html table.
+Bug fix with the session variable ï¿½Loginï¿½ on line 35 from index.php.
+Added the text 'Donï¿½t change this if you are using the default database.' in config.php
 Removed the mouse over option by the 2 blue arrows from admin.php.
 
 Version 1.2.7
@@ -99,8 +150,8 @@ French translation added.
 Version 1.2.5
 
 1. Spanish translation added.
-2. Change the variable name ‘$FTPAdress’ into ‘$FTPAddress’
-3. Add the values ‘UsersFile’, ‘GroupFile’, ’BlacklistUsers’ and ’BlacklistGroups’ to the config.php file.
+2. Change the variable name ï¿½$FTPAdressï¿½ into ï¿½$FTPAddressï¿½
+3. Add the values ï¿½UsersFileï¿½, ï¿½GroupFileï¿½, ï¿½BlacklistUsersï¿½ and ï¿½BlacklistGroupsï¿½ to the config.php file.
 4. Created 2 dropdown menus with a list of Unix users and a list of Unix groups.
 
 Version 1.2.4

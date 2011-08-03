@@ -211,6 +211,7 @@
 					echo ("  alert(\"".$Translate[124]."\");\n\n");
 					echo ("-->\n");
 					echo ("</script>\n");
+                                        
 					$vallid_password = 0;
 					
 					
@@ -329,7 +330,7 @@
         
 				//  update current ftp account
 				
-  				if (($empty_password == 1)&&($vallid_password!=0)) // update without password
+  				if (($empty_password == 1)||($vallid_password==0)) // update without password
   				{
   
   						echo ("<script language=\"JavaScript\" type=\"text/javascript\">\n");
@@ -420,7 +421,7 @@
           else{
           
   				// Create new User
-  				if ($vallid_password != 0 || $empty_password != 1 )
+  				if ($vallid_password != 0 && $empty_password != 1 )
   				{
   				 if  ($_POST['uid_box']!="2001"){
                                 

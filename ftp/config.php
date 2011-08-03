@@ -21,7 +21,7 @@
 
   $DEFUserID = "2001"; // nobody     // Default user id of virtual ftp user.
 
-  $DEFGroupID = "2001";   // guest      // Default group is of virtual ftp user.
+  $DEFGroupID = "2002";   // guest      // Default group is of virtual ftp user.
 
   $UsersFile = "/etc/passwd";        // The unix user file
 

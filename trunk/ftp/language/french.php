@@ -5,7 +5,7 @@
 
   // Global
   $Translate[0]  = "Gestion des utilisateurs FTP du SII";
-  $Translate[1]  = "Version 2.1";
+  $Translate[1]  = "Version 1.0.1";
 
   // Default username
   $Translate[10] = "nom";

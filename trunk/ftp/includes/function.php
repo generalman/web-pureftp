@@ -1,4 +1,22 @@
 <?php
+
+// Function: compare_array ();
+// Returns the position of '$word' in the array '$array'
+// if '$word' does not exist the function returns '-1'
+
+function compare_array($word, $array) {
+    $iCounter = 0;
+    while ($iCounter < count($array)) {
+        if ($word == $array[$iCounter]) {
+            return $iCounter;
+            break;
+        }
+        $iCounter++;
+    }
+    return -1;
+}
+
+
 function logger($var){
     
     if (is_dir("/home/olivier/workspace/WebPureftpd/log")){

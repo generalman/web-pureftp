@@ -1,3 +1,9 @@
+1.0.1 : (04-08-2011 )
+* correction des bugs :
+ - Quand il y a un problème de mot de passe à la création d'un utilisateur, le mot de passe est quand meme enregistré
+ - Bug d'affichage Firefox4 et IE
+ - Utilisateur en lecture peut supprimer des répertoires
+
 1.0 : ( 27-07-2011 )
 * Ajout de la librairie jquery au code pour éviter les problèmes https
 

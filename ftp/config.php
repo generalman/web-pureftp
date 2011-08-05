@@ -3,10 +3,12 @@
    *  For more info look at http://machiel.generaal.net 333333
    *  Version 2.1
    */
-
-  $LANG = "French";                  // See the directory language for the available languages.
+  $version  = "v1.0.1 Final";      //Webpureftpd's version
+  $LANG = "English";                  // See the directory language for the available languages.
 
   $LocationImages =  "images";        // Location of images
+  
+  $Logo = "sii.png";                    // file name of your logo. This file must be in the LocationImages.
 
   $DBHost = "127.0.0.1";              // Ip-address of MySQL server
                                       // (Don�t change this if you are using the default database)

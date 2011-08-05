@@ -7,7 +7,7 @@ echo ("<td>\n");
 echo ("<table class=\"banniere\" border=\"0\" cellpadding=\"0\" cellspacing=\"1\" width=\"850\">\n");
 echo ("<tr >\n");
 echo ("<td >\n");
-echo ("<img hspace=\"1\" src=\"$LocationImages/sii.png\" align=\"middle\" border=\"0\"><span class=\"titre\"><font size=\"+1\">&nbsp;" . $Translate[105] . "</font></span>\n");
+echo ("<img hspace=\"1\" src=\"$LocationImages/$Logo\" align=\"middle\" border=\"0\"><span class=\"titre\"><font size=\"+1\">&nbsp;" . $Translate[105] . "</font></span>\n");
 echo ("</td>\n");
 echo ("<td align=\"right\">");
 echo ("<a href=\"$_SERVER[PHP_SELF]\">");

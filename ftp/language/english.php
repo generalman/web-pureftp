@@ -5,8 +5,8 @@
 
   // Global
   $Translate[0]  = "User manager for PureFTPd";
-  $Translate[1]  = "Version 2.1";
-
+  
+  $Translate[1] = "SII - $version - Developed by Olivier Legras";
   // Default username
   $Translate[10] = "name";
 
@@ -67,5 +67,37 @@
   $Translate[96] = "Restriction of total size (Mb) of files a user can store in his account.";
   $Translate[97] = "For example <1:2> stands for: First upload 4 Mb than download 8 Mb, <0:0> is off";
   $Translate[98] = "Restrict this account to a single client (ip address) or anyone (*)";
-
+  //Add by Olivier Legras
+  $Translate[99] = "%use";
+  $Translate[100] = "Quota allocated to customer : ";
+  $Translate[101] = "Quota not allocated: ";
+  $Translate[102] = "%Quota allocated: ";
+  $Translate[103] = "disconnect";
+  $Translate[104] = "Total Quota : ";
+  $Translate[105] = "Administrators Management: ";
+  $Translate[106] = "Home directory: ";
+  $Translate[107] = "Quota max: ";
+  $Translate[108] = "Customer: ";
+  $Translate[109] = "New Admin: ";
+  $Translate[110] = "You can\'t create this user because you use all your quota.";
+  $Translate[111] = "You can\'t modify this user because you use all your quota";
+  $Translate[112] = "Users rights";
+  $Translate[113] = "Validity";
+  $Translate[114] = "Attention : the read directory of  this user doesn\'t exist. You can activate it only if user with write permission will be connected to a first.";
+  $Translate[115] = "Read / Write";
+  $Translate[116] = "Read-only";
+  $Translate[117] = "Rights";
+  $Translate[118] = "You can not reactivate the account as its base directory is not created by a user who has write permission.";
+  $Translate[119] = "User Management Trash";
+  $Translate[120] = " in the user directory <img src=\"/images/arrow_right.gif\" ";
+  $Translate[121] = "Refresh";
+  $Translate[122] = "You can not create multiple users with the same name";
+  $Translate[123] = "Warning: User already exists!!!";
+  $Translate[124] = "Caution: Check the validity of your password. It must have at least one uppercase, one lowercase and at least 6 characters!!";
+  $Translate[125] = "Password";
+  $Translate[126] = "<b><u>Password generator : </u></b><br>This icon <img src=\"/images/password.png\" height=\"20\" width=\"20\"  border=0 > allows you to generate a strong password and so secure a minimum of your user account.<br><br> <b>Attention</b> :<br> This account is accessible from the Internet, it is essential to make it complicated to prevent it from piracy. <br> <b> <u> View the password: </u> </b> <br> checkbox \"View \" is used to display the password you generated or entered. <br> <b> <u> Operation: </u> </b> <br> When you generate the password automatically, it is copied into the confirmation field .''";
+  $Translate[127] = "Restore the account to its original location";
+  $Translate[128] = "The directory already exists. Impossible to create";
+  $Translate[129] = "Unable to create directory. Check the rights";
+  $Translate[130] = "View";
 ?>

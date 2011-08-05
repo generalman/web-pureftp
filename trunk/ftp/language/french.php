@@ -5,8 +5,8 @@
 
   // Global
   $Translate[0]  = "Gestion des utilisateurs FTP du SII";
-  $Translate[1]  = "Version 1.0.1";
-
+  
+  $Translate[1] = "SII - $version - Développé par Olivier Legras";
   // Default username
   $Translate[10] = "nom";
 
@@ -98,4 +98,6 @@
   $Translate[127] = "Restorer le compte à son emplacement d'origine";
   $Translate[128] = "Le répertoire existe déjà. Impossible de le créer";
   $Translate[129] = "Impossible de créer le répertoire. Verifiez les droits";
+  $Translate[130] = "Voir";
+  
   ?>

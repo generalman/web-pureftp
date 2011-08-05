@@ -51,7 +51,7 @@ echo ("<td class=\"border_lrtb\" colspan=\"2\">\n&nbsp;");
 
 echo ("<input id=\"password_box\" type=\"password\" name=\"password_box\" size=\"20\" maxlength=\"64\" value=\"$password\">\n");
 echo ("\n<script src=\"includes/js/jquery.showpassword-1.0.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\n");
-echo ("<input id=\"showcharacters\" name=\"showcharacters\" type=\"checkbox\" />Voir ");
+echo ("<input id=\"showcharacters\" name=\"showcharacters\" type=\"checkbox\" />$Translate[130] ");
 echo ("<script type=\"text/javascript\">\n");
 echo ("	// <![CDATA[	\n");
 echo ("	$(document).ready(function(){	\n");
@@ -151,19 +151,19 @@ if ($Client == "Administrator") {
     echo ("<option value=\"\"  ");
     if ($uid == "") {
         echo ("selected=\"selected\"");
-    }echo (">Droits Utilisateurs</option>");
+    }echo (">$Translate[112]</option>");
 
     echo ("<option value=\"2001\" ");
     if ($uid == "2001") {
         echo ("selected=\"selected\"");
-    }echo (">Lecture et Ecriture</option>");
+    }echo (">$Translate[115]</option>");
 
 
 
     echo ("<option value=\"2002\" ");
     if ($uid == "2002") {
         echo ("selected=\"selected\"");
-    }echo (">Lecture seulement</option>");
+    }echo (">$Translate[116]</option>");
 
 
 
